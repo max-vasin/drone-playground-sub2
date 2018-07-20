@@ -1,4 +1,5 @@
 pipeline:
-  image: node:9
-  commands:
-  - echo "building dependency project #2"
+  simulation:
+    image: node:9
+    commands:
+      - echo "building dependency project #2"
