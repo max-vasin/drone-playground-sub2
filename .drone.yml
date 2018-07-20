@@ -2,4 +2,4 @@ pipeline:
   simulation:
     image: node:9
     commands:
-      - echo 'building dependency project #2'
+      - echo 'building dependency project 2'
