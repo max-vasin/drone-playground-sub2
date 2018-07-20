@@ -1,0 +1,4 @@
+pipeline:
+  image: node:9
+  commands:
+  - echo "building dependency project #2"
