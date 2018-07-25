@@ -1,5 +1,28 @@
 pipeline:
-  simulation:
+  check_downstream:
+    image: maxvasin/resolve-docker
+    pull: true
+    commands:
+      - if [ -z $REGISTRY_DOWNSTREAM ]; then exit 0; fi
+      - /scripts/package_json patch-dependencies @badgeteam/drone-fake $REGISTRY_VERSION
+
+  install_packages:
     image: node:9
     commands:
-      - echo 'building dependency project 2'
+      - npm install
+
+  test:
+    image: node:9
+    commands:
+      - cat ./node_modules/@badgeteam/drone-fake/package.json
+
+  downstream_registry:
+    image: maxvasin/drone-downstream-registry
+    pull: true
+    registry_path: /data/registry
+    action: downstream-build
+    volumes:
+      - /srv/ecs/downstream-registry:/data/registry
+    when:
+      status: [ success, failure ]
+
