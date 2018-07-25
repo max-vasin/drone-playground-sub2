@@ -15,7 +15,6 @@ pipeline:
     image: node:9
     commands:
       - cat ./node_modules/@badgeteam/drone-fake/package.json
-      - exit 1
 
   downstream_registry:
     image: maxvasin/drone-downstream-registry
