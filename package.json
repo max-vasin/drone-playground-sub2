@@ -1,5 +1,5 @@
 {
-  "name": "drone-playground-sub1",
+  "name": "drone-playground-sub2",
   "version": "1.0.0",
   "dependencies": {
     "@badgeteam/drone-fake": "0.1.0-nightly-2018-07-24T11-31-16-809Z"
